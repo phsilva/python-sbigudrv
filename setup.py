@@ -35,7 +35,7 @@ def get_num_include_path ():
         return False
 
     if not numpys:
-        print >> sys.stderr, "Cannot found numpy installation."
+        print >> sys.stderr, "Cannot find numpy installation."
         exit(-1)
     else:
         numpy = numpys[0]
@@ -43,7 +43,7 @@ def get_num_include_path ():
     return resource_filename(numpy.project_name, 'core/include')
 
 def getPythonArch ():
-    if "64" in platform.architecture():
+    if "64" in platform.architecture()[0]:
         return "64"
     return "32"
 
@@ -56,7 +56,7 @@ if sys.platform == "win32":
     print """
 ==================================================================
 This package is not supported on Win32 system yet. Try it on Linux
-please, or contact the Author about porting it to Window too.
+please, or contact the author about porting it to Windows too.
 ===================================================================
 """
     sys.exit(1)
@@ -74,7 +74,7 @@ if "install" in sys.argv or "build" in sys.argv:
         print """
 =======================================================================
 It seems like you doesn't have SWIG, I'll try to use a pre-compiled
-wrapper. If you see any problem below, install a SWIG version an try
+wrapper. If you see any problem below, install a SWIG version and try
 again.
 
 You can get SWIG at http://www.swig.org or using your distribution
@@ -86,9 +86,9 @@ packager, like apt-get on Debians or yum in RPM based distros.
 if not get_num_include_path():
     print """
 =======================================================================
-This script requires Numpy before they start any command, so, the first
-time you run it without a valid Numpy installation it will take a
-while to download Numpy. Please wait patientily. Once you have Numpy
+This script requires numpy before they start any command, so, the first
+time you run it without a valid numpy installation it will take a
+while to download numpy. Please wait patientily. Once you have numpy
 downloaded it will go as fast as you want.
 =======================================================================
 """
@@ -130,7 +130,7 @@ setup(name="python-sbigudrv",
 
       install_requires = ["numpy >= 1.0.3"],
             
-      version          = "0.1",
+      version          = "0.2",
       description      = "Python wrappers for SBIG (tm) Universal Driver",
       long_description = open("README").read(),
       author           = "Paulo Henrique Silva",
