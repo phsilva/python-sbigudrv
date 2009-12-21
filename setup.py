@@ -92,9 +92,7 @@ while to download numpy. Please wait patientily. Once you have numpy
 downloaded it will go as fast as you want.
 =======================================================================
 """
-
-    setup(name="python-sbigudrv",
-          setup_requires  = ["numpy >= 1.0.3"])
+    setup(name="python-sbigudrv")
 
 #
 # setup
