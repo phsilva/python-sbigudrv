@@ -12,17 +12,17 @@ if necessary.
 
 To install this package you will need:
 
-`Numpy`_ >= 1.0.3 (which is automatically installed if you doesn't
-have one).
+`Numpy`_ >= 1.0.3.
 
-`SWIG`_ (optionally). If you need to regenerate the included
-pre-compiled wrapper.
+`SWIG`_ (optionally, but recommended). Only if you need to regenerate the included
+pre-generated wrapper.
 
-And, SBIG Universal Driver requires:
-
-`libusb`_. Use your distro packager to install it, it's widely
-available. It works with the stable (0.1) version, not the new in
+`libusb`_. It's widely available. It works with the stable (0.1) version, not the new in
 development 1.0.
+
+On Ubuntu, use the following to install all dependencies:
+
+``sudo apt-get install python-numpy swig libusb-dev``
 
 .. _Numpy: http://numpy.scipy.org
 .. _SWIG: http://www.swig.org
