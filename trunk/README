@@ -20,9 +20,11 @@ pre-generated wrapper.
 `libusb`_. It's widely available. It works with the stable (0.1) version, not the new in
 development 1.0.
 
+You'll also need Python developer package.
+
 On Ubuntu, use the following to install all dependencies:
 
-``sudo apt-get install python-numpy swig libusb-dev``
+``sudo apt-get install python-dev python-numpy swig libusb-dev``
 
 .. _Numpy: http://numpy.scipy.org
 .. _SWIG: http://www.swig.org
