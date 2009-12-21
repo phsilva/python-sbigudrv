@@ -66,7 +66,7 @@ please, or contact the author about porting it to Windows too.
 
 HAVE_SWIG=True
 
-if "install" in sys.argv or "build" in sys.argv:
+if "install" in sys.argv or "build" in sys.argv or "bdist_egg" in sys.argv:
     try:
         Popen(["swig"], stdout=PIPE, stderr=PIPE).wait()
     except OSError:
@@ -128,9 +128,7 @@ setup(name="python-sbigudrv",
 
       zip_safe         = False,
 
-      install_requires = ["numpy >= 1.0.3"],
-            
-      version          = "0.2",
+      version          = "0.3",
       description      = "Python wrappers for SBIG (tm) Universal Driver",
       long_description = open("README").read(),
       author           = "Paulo Henrique Silva",
