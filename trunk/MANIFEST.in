@@ -1,2 +1,3 @@
-include sbigudrv/sbigudrv.h
-include sbigudrv/numpy.i
+include sbigudrv/*.h
+include sbigudrv/*.a
+include sbigudrv/*.i
