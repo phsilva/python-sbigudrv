@@ -126,7 +126,7 @@ setup(name="python-sbigudrv",
 
       zip_safe         = False,
 
-      version          = "0.3",
+      version          = "0.4",
       description      = "Python wrappers for SBIG (tm) Universal Driver",
       long_description = open("README").read(),
       author           = "Paulo Henrique Silva",

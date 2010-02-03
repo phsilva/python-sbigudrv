@@ -2,3 +2,8 @@ include sbigudrv/*.h
 include sbigudrv/*.a
 include sbigudrv/*.i
 include sbigudrv/*.c
+include ez_setup.py
+include setup.cfg
+include AUTHORS
+include ChangeLog
+include LICENSE
