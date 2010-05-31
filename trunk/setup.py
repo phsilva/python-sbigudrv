@@ -114,7 +114,7 @@ else:
 setup(name="python-sbigudrv",
 
       ext_modules      = [Extension("sbigudrv/_sbigudrv", extension_src, 
-                                    swig_opts=["-python", "-I./sbigudrv", "-DTARGET=%d" % ENV_LINUX],
+                                    swig_opts=["-I./sbigudrv", "-DTARGET=%d" % ENV_LINUX],
                                     include_dirs=[get_num_include_path(), './sbigudrv'],
                                     define_macros=[('TARGET', ENV_LINUX)],
                                     libraries=["usb"],
@@ -126,7 +126,7 @@ setup(name="python-sbigudrv",
 
       zip_safe         = False,
 
-      version          = "0.4",
+      version          = "0.5",
       description      = "Python wrappers for SBIG (tm) Universal Driver",
       long_description = open("README").read(),
       author           = "Paulo Henrique Silva",
