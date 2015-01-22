@@ -24,6 +24,7 @@ from pkg_resources import require, resource_filename
 
 import platform
 import sys
+import os
 from subprocess import Popen, PIPE
 
 def get_num_include_path ():
@@ -99,8 +100,9 @@ downloaded it will go as fast as you want.
 #
 
 ENV_LINUX = 7
-SBIG_UDRV_VERSION="4.57"
+SBIG_UDRV_VERSION="4.75"
 SBIG_UDRV_ARCH=getPythonArch()
+SBIG_UDRV_LIB_DIR="sbigudrv/%s" % ("lib" if SBIG_UDRV_ARCH == "32" else "lib64")
 
 # if we don't have SWIG, try with pre-compiler wrapper
 extension_src = None
@@ -113,20 +115,21 @@ else:
 # go!
 setup(name="python-sbigudrv",
 
-      ext_modules      = [Extension("sbigudrv/_sbigudrv", extension_src, 
+      ext_modules      = [Extension("sbigudrv/_sbigudrv", extension_src,
                                     swig_opts=["-I./sbigudrv", "-DTARGET=%d" % ENV_LINUX],
                                     include_dirs=[get_num_include_path(), './sbigudrv'],
                                     define_macros=[('TARGET', ENV_LINUX)],
-                                    libraries=["usb"],
-                                    extra_link_args=["./sbigudrv/libsbigudrv-%s-linux-amd%s.a" % (SBIG_UDRV_VERSION,
-                                                                                                  SBIG_UDRV_ARCH)])],
+                                    libraries=["usb", "sbigudrv"],
+                                    library_dirs=[SBIG_UDRV_LIB_DIR])],
 
       packages         = find_packages(),
       include_package_data = True,
 
+      data_files       = [("sbigudrv", [os.path.join(SBIG_UDRV_LIB_DIR, "libsbigudrv.so")])],
+
       zip_safe         = False,
 
-      version          = "0.5",
+      version          = "0.6",
       description      = "Python wrappers for SBIG (tm) Universal Driver",
       long_description = open("README").read(),
       author           = "Paulo Henrique Silva",
